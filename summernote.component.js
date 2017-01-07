@@ -10,8 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var SummernoteComponent = (function () {
-    function SummernoteComponent() {
+    function SummernoteComponent(element) {
+        this.element = element;
     }
+    SummernoteComponent.prototype.ngOnInit = function () {
+        $(this.element.nativeElement).find('.summernote').summernote();
+    };
+    SummernoteComponent.prototype.ngOnDestroy = function () {
+        $(this.element.nativeElement).find('.summernote').summernote('destroy');
+    };
     return SummernoteComponent;
 }());
 SummernoteComponent = __decorate([
@@ -19,7 +26,7 @@ SummernoteComponent = __decorate([
         selector: 'summernote',
         template: '<div class="summernote"></div>'
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [core_1.ElementRef])
 ], SummernoteComponent);
 exports.SummernoteComponent = SummernoteComponent;
 //# sourceMappingURL=summernote.component.js.map

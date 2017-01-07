@@ -2,7 +2,7 @@
   "name": "ng2-alt-summernote",
   "version": "1.0.0",
   "description": "Summernote extension for Angular2",
-  "main": "index.js",
+  "main": "index.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/carlescs/ng2-alt-summernote.git"

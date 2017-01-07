@@ -9,13 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var summernote_component_1 = require("./summernote.component");
 var SummernoteModule = (function () {
     function SummernoteModule() {
     }
     return SummernoteModule;
 }());
 SummernoteModule = __decorate([
-    core_1.NgModule({}),
+    core_1.NgModule({
+        declarations: [
+            summernote_component_1.SummernoteComponent
+        ],
+        exports: [
+            summernote_component_1.SummernoteComponent
+        ]
+    }),
     __metadata("design:paramtypes", [])
 ], SummernoteModule);
 exports.SummernoteModule = SummernoteModule;
