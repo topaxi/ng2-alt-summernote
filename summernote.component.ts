@@ -62,7 +62,7 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
     writeValue(code: string) {
         this.value = code;
 
-        jQuery(this.element.nativeElement).summernote('code', this.value);
+        jQuery(this.element.nativeElement).find('.summernote').summernote('code', this.value);
     }
 
     registerOnChange(fn: any) {
