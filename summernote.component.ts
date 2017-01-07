@@ -1,3 +1,6 @@
+/// <reference path="summernote.d.ts" />
+
+
 import {Component,OnInit,OnDestroy,ElementRef} from '@angular/core';
 
 @Component({
