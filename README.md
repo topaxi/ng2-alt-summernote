@@ -16,7 +16,7 @@ To use it with angular-cli:
    ```
    npm install --save jquery
    npm install --save bootstrap
-   npm install --summernote
+   npm install --save summernote
    ```
 
 2. Add scripts to `angular-cli.json`:
