@@ -1,4 +1,4 @@
-/// <reference path="summernote.d.ts" />
+/// <reference path="../summernote.d.ts" />
 
 import {
     Component,

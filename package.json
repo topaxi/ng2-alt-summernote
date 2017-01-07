@@ -1,6 +1,6 @@
 {
   "name": "ng2-alt-summernote",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Summernote extension for Angular2",
   "main": "index.ts",
   "repository": {
