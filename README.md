@@ -65,3 +65,9 @@ To use it with angular-cli:
     ```html
     <summernote [(ngModel)]="text" (options)="options"></summernote>
     ```
+
+-----
+
+# Note:
+
+This module is based on [ng2-summernote](https://github.com/martinsvb/ng2-summernote). I tried forking the repo to fix the issues I was having but decided to start from scratch because it had some things that I didn't need.
