@@ -39,6 +39,9 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
     set value(value: string) {
         this._value = value;
     }
+    get value():string{
+        return this._value;
+    }
 
     ngOnInit() {
         if (this.options == null) {
@@ -62,7 +65,7 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
     writeValue(code: string) {
         this.value = code;
 
-        jQuery(this.element.nativeElement).find('.summernote').summernote('code', this.value);
+        jQuery(this.element.nativeElement).find('.summernote').summernote('code', code);
     }
 
     registerOnChange(fn: any) {
