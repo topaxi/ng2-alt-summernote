@@ -63,5 +63,5 @@ To use it with angular-cli:
 6. Use it in you components:
 
     ```html
-    <summernote></summernote>
+    <summernote [(ngModel)]="text" (options)="options"></summernote>
     ```
