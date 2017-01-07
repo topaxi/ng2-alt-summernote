@@ -1,2 +1,2 @@
-export {SummernoteComponent} from './summernote.component';
-export {SummernoteModule} from './summernote.module';
+export {SummernoteComponent} from './src/summernote.component';
+export {SummernoteModule} from './src/summernote.module';
