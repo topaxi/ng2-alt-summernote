@@ -13,7 +13,6 @@ npm install --save jquery
 npm install --save bootstrap
 npm install --summernote
 ```
-
 2. Add scripts to `angular-cli.json`:
 ```
 "scripts": [
@@ -22,7 +21,6 @@ npm install --summernote
    "../node_modules/summernote/dist/summernote.min.js"
    ],
 ```
-
 3. Add styles to `angular-cli.json`:
 ```
 "styles": [
@@ -31,12 +29,10 @@ npm install --summernote
    "../node_modules/summernote/dist/summernote.css"
    ],
 ```
-
 4. Install `ng2-alt-summernote`:
 ```bash
 npm install --save npm-alt-summernote
 ```
-
 5. Import `SummernoteModule` in `app.module.ts`:
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
@@ -63,7 +59,6 @@ import { AppComponent } from './app.component';
 })
 export class AppModule { }
 ```
-
 6. Use it in you components:
 
 ```html
