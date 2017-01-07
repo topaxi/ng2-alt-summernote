@@ -13,26 +13,29 @@ Usage:
 To use it with angular-cli:
 
 1. Install jquery, bootstrap and summernote:
-
-       npm install --save jquery
-       npm install --save bootstrap
-       npm install --summernote
+   ```
+   npm install --save jquery
+   npm install --save bootstrap
+   npm install --summernote
+   ```
 
 2. Add scripts to `angular-cli.json`:
-
-       "scripts": [
-          "../node_modules/jquery/dist/jquery.min.js",
-          "../node_modules/bootstrap/dist/js/bootstrap.min.js",
-          "../node_modules/summernote/dist/summernote.min.js"
-          ],
+   ```
+   "scripts": [
+      "../node_modules/jquery/dist/jquery.min.js",
+      "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+      "../node_modules/summernote/dist/summernote.min.js"
+      ],
+   ```
 
 3. Add styles to `angular-cli.json`:
-       
-       "styles": [
-          "styles.css",
-          "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-          "../node_modules/summernote/dist/summernote.css"
-          ],
+   ``` 
+   "styles": [
+      "styles.css",
+      "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+      "../node_modules/summernote/dist/summernote.css"
+      ],
+   ```
 
 4. Install `ng2-alt-summernote`:
 
