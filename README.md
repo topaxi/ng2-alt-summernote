@@ -2,6 +2,12 @@
 
 Component to use summernote in Angular 2.
 
+Example:
+--------
+[Example](https://carlescs.github.io/testangular/)
+
+The example repo is located [here](https://github.com/carlescs/testangular).
+
 Usage:
 ------
 To use it with angular-cli:
@@ -71,3 +77,4 @@ To use it with angular-cli:
 # Note:
 
 This module is based on [ng2-summernote](https://github.com/martinsvb/ng2-summernote). I tried forking the repo to fix the issues I was having but decided to start from scratch because it had some things that I didn't need.
+
