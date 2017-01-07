@@ -33,33 +33,35 @@ To use it with angular-cli:
         npm install --save npm-alt-summernote
 
 5. Import `SummernoteModule` in `app.module.ts`:
-```typescript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
-import {SummernoteModule} from 'ng2-alt-summernote';
+    ```typescript
+    import { BrowserModule } from '@angular/platform-browser';
+    import { NgModule } from '@angular/core';
+    import { FormsModule } from '@angular/forms';
+    import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
+    import {SummernoteModule} from 'ng2-alt-summernote';
 
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    SummernoteModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
-```
+    import { AppComponent } from './app.component';
+
+    @NgModule({
+      declarations: [
+        AppComponent
+      ],
+      imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        SummernoteModule
+      ],
+      providers: [],
+      bootstrap: [AppComponent]
+    })
+    export class AppModule { }
+    ```
+
 6. Use it in you components:
 
-```html
-<summernote></summernote>
-```
+    ```html
+    <summernote></summernote>
+    ```
