@@ -26,13 +26,23 @@ const SUMMERNOTE_VALUE_ACCESSOR = {
     providers: [SUMMERNOTE_VALUE_ACCESSOR]
 })
 export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAccessor {
-    @Input() options: SummernoteOptions;
+    @Input()
+    set options(options: SummernoteOptions) {
+        this._options = options;
+        this.addCallbacks();
+        this.refreshOptions();
+    }
+
+    get options(): SummernoteOptions {
+        return this._options;
+    }
 
     @Input()
     set disabled(disabled: boolean) {
-        if (disabled != null&&this.initialized) {
+        if (disabled != null) {
             this._disabled = disabled;
             $(this.element.nativeElement).find('.summernote').summernote(disabled ? 'disable' : 'enable');
+            this.refreshOptions();
         }
     }
 
@@ -41,7 +51,8 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
     }
 
     private _disabled: boolean = false;
-    private initialized=false;
+    
+    private _options: SummernoteOptions;
 
     private onTouched = () => { };
     private onChange: (value: string) => void = () => { };
@@ -58,10 +69,11 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
         return this._value;
     }
 
-    ngOnInit() {
-        if (this.options == null) {
-            this.options = {};
-        }
+    private refreshOptions() {
+        $(this.element.nativeElement).find('.summernote').summernote(this.options);
+    }
+
+    private addCallbacks(){
         this.options.callbacks = {
             onChange: (contents, $editable) => {
                 this.onChange(contents);
@@ -70,8 +82,15 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
                 this.onTouched();
             }
         };
-        $(this.element.nativeElement).find('.summernote').summernote(this.options);
-        this.initialized=true;
+    }
+
+    ngOnInit() {
+        if (this.options == null) {
+            this.options = {};
+        }
+        else{
+            this.addCallbacks();
+        }
     }
 
     ngOnDestroy() {
