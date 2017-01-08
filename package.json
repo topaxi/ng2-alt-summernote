@@ -1,6 +1,6 @@
 {
   "name": "ng2-alt-summernote",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Summernote extension for Angular2",
   "main": "index.ts",
   "keywords": [
@@ -13,6 +13,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "types":[
+    "./summernote.d.ts"
+  ],
   "author": "Carles Company Soler",
   "license": "MIT",
   "dependencies": {
