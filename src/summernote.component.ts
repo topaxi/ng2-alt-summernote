@@ -1,3 +1,4 @@
+import { bindDirectiveInputs } from '@angular/compiler/src/view_compiler/property_binder';
 /// <reference path="../summernote.d.ts" />
 
 import {
@@ -27,6 +28,18 @@ const SUMMERNOTE_VALUE_ACCESSOR = {
 })
 export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAccessor {
     @Input() options: SummernoteOptions;
+
+    @Input()
+    set disabled(disabled:boolean){
+        this._disabled=disabled;
+        $(this.element.nativeElement).find('.summernote').summernote(disabled?'disable':'enable');
+    }
+
+    get disabled():boolean{
+        return this._disabled;
+    }
+
+    private _disabled:boolean=false;
 
     private onTouched = () => { };
     private onChange: (value: string) => void = () => { };
