@@ -30,7 +30,7 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
 
     @Input()
     set disabled(disabled: boolean) {
-        if (disabled != null) {
+        if (disabled != null&&this.initialized) {
             this._disabled = disabled;
             $(this.element.nativeElement).find('.summernote').summernote(disabled ? 'disable' : 'enable');
         }
@@ -41,6 +41,7 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
     }
 
     private _disabled: boolean = false;
+    private initialized=false;
 
     private onTouched = () => { };
     private onChange: (value: string) => void = () => { };
@@ -70,6 +71,7 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
             }
         };
         $(this.element.nativeElement).find('.summernote').summernote(this.options);
+        this.initialized=true;
     }
 
     ngOnDestroy() {
