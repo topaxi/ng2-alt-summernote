@@ -1,4 +1,3 @@
-import { bindDirectiveInputs } from '@angular/compiler/src/view_compiler/property_binder';
 /// <reference path="../summernote.d.ts" />
 
 import {
