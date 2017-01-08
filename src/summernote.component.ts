@@ -15,30 +15,32 @@ import {
 } from '@angular/forms';
 
 const SUMMERNOTE_VALUE_ACCESSOR = {
-  provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => SummernoteComponent),
-  multi: true
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => SummernoteComponent),
+    multi: true
 };
 
 @Component({
     selector: 'summernote',
     template: '<div class="summernote"></div>',
-    providers:[SUMMERNOTE_VALUE_ACCESSOR]
+    providers: [SUMMERNOTE_VALUE_ACCESSOR]
 })
 export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAccessor {
     @Input() options: SummernoteOptions;
 
     @Input()
-    set disabled(disabled:boolean){
-        this._disabled=disabled;
-        $(this.element.nativeElement).find('.summernote').summernote(disabled?'disable':'enable');
+    set disabled(disabled: boolean) {
+        if (disabled != null) {
+            this._disabled = disabled;
+            $(this.element.nativeElement).find('.summernote').summernote(disabled ? 'disable' : 'enable');
+        }
     }
 
-    get disabled():boolean{
+    get disabled(): boolean {
         return this._disabled;
     }
 
-    private _disabled:boolean=false;
+    private _disabled: boolean = false;
 
     private onTouched = () => { };
     private onChange: (value: string) => void = () => { };
@@ -51,7 +53,7 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
     set value(value: string) {
         this._value = value;
     }
-    get value():string{
+    get value(): string {
         return this._value;
     }
 
@@ -59,11 +61,11 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
         if (this.options == null) {
             this.options = {};
         }
-        this.options.callbacks={
-            onChange:(contents, $editable)=>{
+        this.options.callbacks = {
+            onChange: (contents, $editable) => {
                 this.onChange(contents);
             },
-            onTouched:()=>{
+            onTouched: () => {
                 this.onTouched();
             }
         };
