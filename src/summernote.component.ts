@@ -1,4 +1,5 @@
 /// <reference path="../summernote.d.ts" />
+import * as $ from 'jquery';
 
 import {
     Component,
