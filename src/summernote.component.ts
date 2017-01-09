@@ -3,7 +3,7 @@ import * as $ from 'jquery';
 
 import {
     Component,
-    AfterViewInit,
+    OnInit,
     OnDestroy,
     ElementRef,
     Input,
@@ -26,7 +26,7 @@ const SUMMERNOTE_VALUE_ACCESSOR = {
     template: '<div class="summernote"></div>',
     providers: [SUMMERNOTE_VALUE_ACCESSOR]
 })
-export class SummernoteComponent implements AfterViewInit, OnDestroy, ControlValueAccessor {
+export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAccessor {
     @Input()
     set options(options: SummernoteOptions) {
         this._options = options;
@@ -85,7 +85,7 @@ export class SummernoteComponent implements AfterViewInit, OnDestroy, ControlVal
         };
     }
 
-    ngAfterViewInit() {
+    ngOnInit() {
         if (this.options == null) {
             this.options = {};
         }
