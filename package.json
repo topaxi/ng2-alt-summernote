@@ -1,20 +1,24 @@
 {
   "name": "ng2-alt-summernote",
-  "version": "0.0.20",
+  "version": "0.1.0",
   "description": "Summernote extension for Angular2",
-  "main": "index.ts",
+  "main": "ng2-alt-summernote.js",
   "keywords": [
-    "angular2", "summernote","wysiwyg","html"
+    "angular2",
+    "summernote",
+    "wysiwyg",
+    "html"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/carlescs/ng2-alt-summernote.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "tsc"
   },
-  "types":[
-    "./summernote.d.ts"
+  "types": [
+    "./summernote.d.ts",
+    "./ng2-alt-summernote.d.ts"
   ],
   "author": "Carles Company Soler",
   "license": "MIT",
@@ -31,9 +35,7 @@
     "reflect-metadata": "^0.1.9",
     "core-js": "^2.4.1",
     "@types/jquery": "^2.0.34",
-    "@types/core-js":"^0.9.35"
+    "@types/core-js": "^0.9.35"
   },
-  "devDependencies": {
-    
-  }
+  "devDependencies": {}
 }
