@@ -13,6 +13,7 @@ Usage with Angular CLI:
 To use it with angular-cli:
 
 1. Install jquery, bootstrap and summernote:
+
    ```bash
    npm install --save jquery
    npm install --save bootstrap
@@ -20,6 +21,7 @@ To use it with angular-cli:
    ```
 
 2. Add styles to `angular-cli.json`:
+
    ```json 
    "styles": [
       "styles.css",
@@ -29,6 +31,7 @@ To use it with angular-cli:
    ```
 
 3. Add `vendor.ts` file with the following content:
+
     ```typescript
     import * as jquery from 'jquery';
     window['jQuery'] = window['$'] = jquery;
@@ -44,7 +47,9 @@ To use it with angular-cli:
 
 4. Install `ng2-alt-summernote`:
 
-        npm install --save npm-alt-summernote
+   ```
+   npm install --save npm-alt-summernote
+   ```
 
 5. Import `SummernoteModule`, `bootstrap` and `summernote` in `app.module.ts`:
 
@@ -88,6 +93,7 @@ Usage with Webpack:
 To install in a webpack project:
 
 1. Install required packages:
+
    ```bash
    npm install --save bootstrap
    npm install --save font-awesome
@@ -95,7 +101,9 @@ To install in a webpack project:
    npm install --save summernote
    npm install --save ng2-alt-summernote
    ```
+
 2. Import modules in `vendor.ts` (if available, if not use another typescript file):
+
    ```typescript
    import 'jquery';
 
@@ -111,6 +119,7 @@ To install in a webpack project:
    ```
 
 3. Import module in you `NgModule`:
+
    ```typescript
    import { NgModule } from '@angular/core';
    import { BrowserModule } from '@angular/platform-browser';
@@ -141,11 +150,11 @@ To install in a webpack project:
    }
    ```
 
-4.Use it in your templates:
+4. Use it in your components:
 
-   ```html
-   <summernote [(ngModel)]="text" [options]="options" [disabled]="disabled"></summernote>
-   ```
+    ```html
+    <summernote [(ngModel)]="text" [options]="options" [disabled]="disabled"></summernote>
+    ```
 
 ---
 # Note:
