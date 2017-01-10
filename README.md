@@ -143,9 +143,9 @@ To install in a webpack project:
 
 4.Use it in your templates:
 
-    ```html
-    <summernote [(ngModel)]="text" [options]="options" [disabled]="disabled"></summernote>
-    ```
+   ```html
+   <summernote [(ngModel)]="text" [options]="options" [disabled]="disabled"></summernote>
+   ```
 
 ---
 # Note:
