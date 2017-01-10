@@ -57,19 +57,19 @@ To use it with angular-cli:
     import 'bootstrap/dist/js/bootstrap.min.js';
     import 'summernote/dist/summernote.min.js';
 
-    import {SummernoteModule} from 'ng2-alt-summernote';
+    import {SummernoteComponent} from 'ng2-alt-summernote';
 
     import { AppComponent } from './app.component';
 
     @NgModule({
       declarations: [
+        SummernoteComponent,
         AppComponent
       ],
       imports: [
         BrowserModule,
         FormsModule,
-        HttpModule,
-        SummernoteModule
+        HttpModule
       ],
       providers: [],
       bootstrap: [AppComponent]
