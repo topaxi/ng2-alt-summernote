@@ -1,6 +1,6 @@
 {
   "name": "ng2-alt-summernote",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Summernote extension for Angular2",
   "main": "ng2-alt-summernote.js",
   "keywords": [
