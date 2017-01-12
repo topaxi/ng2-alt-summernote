@@ -1,6 +1,6 @@
 # ng2-alt-summernote
 
-Component to use summernote in Angular 2.
+Component to use [Summernote](http://summernote.org/) in Angular 2.
 
 Example:
 --------
