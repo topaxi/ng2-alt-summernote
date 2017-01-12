@@ -57,19 +57,19 @@ type toolbarTableGroupOptions = 'table';
 type toolbarInsertGroupOptions = 'link' | 'picture' | 'hr';
 type toolbarViewGroupOptions = 'fullscreen' | 'codeview';
 type toolbarHelpGroupOptions = 'help';
-//type toolbarDef = [string, string[]][];
-type toolbarDef = [
-    ['style', toolbarStyleGroupOptions[]]
-    | ['font', toolbarFontGroupOptions[]]
-    | ['fontsize', toolbarFontsizeGroupOptions[]]
-    | ['color', toolbarColorGroupOptions[]]
-    | ['para', toolbarParaGroupOptions[]]
-    | ['height', toolbarHeightGroupOptions[]]
-    | ['table', toolbarTableGroupOptions[]]
-    | ['insert', toolbarInsertGroupOptions[]]
-    | ['view', toolbarViewGroupOptions[]]
-    | ['help', toolbarHelpGroupOptions[]]
-];
+type toolbarDef = [string, string[]][];
+//type toolbarDef = [
+//    ['style', toolbarStyleGroupOptions[]]
+//    | ['font', toolbarFontGroupOptions[]]
+//    | ['fontsize', toolbarFontsizeGroupOptions[]]
+//    | ['color', toolbarColorGroupOptions[]]
+//    | ['para', toolbarParaGroupOptions[]]
+//    | ['height', toolbarHeightGroupOptions[]]
+//    | ['table', toolbarTableGroupOptions[]]
+//    | ['insert', toolbarInsertGroupOptions[]]
+//    | ['view', toolbarViewGroupOptions[]]
+//    | ['help', toolbarHelpGroupOptions[]]
+//];
 
 
 
