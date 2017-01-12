@@ -72,6 +72,8 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
 
     private refreshOptions() {
         $(this.element.nativeElement).find('.summernote').summernote(this.options);
+        if(this.options.tooltip!=undefined&&!this.options.tooltip)
+            $('.note-btn').attr('title', '');
     }
 
     private addCallbacks(){

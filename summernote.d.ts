@@ -35,6 +35,7 @@ interface SummernoteOptions {
     tableClassName?: string;
     textareaAutoSync?: boolean;
     toolbar?: toolbarDef;
+    tooltip?: boolean;
     width?: number;
 }
 
