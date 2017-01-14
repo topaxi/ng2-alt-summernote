@@ -5,6 +5,7 @@
 
 interface SummernoteOptions {
     airMode?: boolean;
+    buttons?: any;
     callbacks?: any; // todo
     codemirror?: CodemirrorOptions;
     colors?: colorsDef;
