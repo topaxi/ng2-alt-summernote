@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /// <reference path="../summernote.d.ts" />
 var $ = require("jquery");
 var core_1 = require("@angular/core");
-var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var SUMMERNOTE_VALUE_ACCESSOR = {
     provide: forms_1.NG_VALUE_ACCESSOR,
@@ -19,9 +18,8 @@ var SUMMERNOTE_VALUE_ACCESSOR = {
     multi: true
 };
 var SummernoteComponent = (function () {
-    function SummernoteComponent(element, sanitizer) {
+    function SummernoteComponent(element) {
         this.element = element;
-        this.sanitizer = sanitizer;
         this.emptyChange = new core_1.EventEmitter();
         this._disabled = false;
         this.onTouched = function () { };
@@ -138,7 +136,7 @@ SummernoteComponent = __decorate([
         template: '<div class="summernote"></div>',
         providers: [SUMMERNOTE_VALUE_ACCESSOR]
     }),
-    __metadata("design:paramtypes", [core_1.ElementRef, platform_browser_1.DomSanitizer])
+    __metadata("design:paramtypes", [core_1.ElementRef])
 ], SummernoteComponent);
 exports.SummernoteComponent = SummernoteComponent;
 //# sourceMappingURL=summernote.component.js.map

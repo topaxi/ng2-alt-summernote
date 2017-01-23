@@ -13,8 +13,6 @@ import {
     SecurityContext
 } from '@angular/core';
 
-import { DomSanitizer } from '@angular/platform-browser';
-
 import {
     NG_VALUE_ACCESSOR
     , ControlValueAccessor
@@ -77,7 +75,7 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
     private onTouched = () => { };
     private onChange: (value: string) => void = () => { };
 
-    constructor(private element: ElementRef, private sanitizer: DomSanitizer) {
+    constructor(private element: ElementRef) {
 
     }
     private _value: string;
