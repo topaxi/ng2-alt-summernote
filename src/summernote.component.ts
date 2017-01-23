@@ -3,12 +3,17 @@ import * as $ from 'jquery';
 
 import {
     Component,
-    OnInit,
-    OnDestroy,
     ElementRef,
+    forwardRef,
     Input,
-    forwardRef
+    Output,
+    EventEmitter,
+    OnDestroy,
+    OnInit,
+    SecurityContext
 } from '@angular/core';
+
+import { DomSanitizer } from '@angular/platform-browser';
 
 import {
     NG_VALUE_ACCESSOR
@@ -35,7 +40,7 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
     }
 
     get options(): SummernoteOptions {
-        return this._options;
+        return this._options || {};
     }
 
     @Input()
@@ -51,14 +56,28 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
         return this._disabled;
     }
 
+    private _empty;
+
+    @Output() emptyChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+    get empty(){
+        return this._empty;
+    }
+    set empty(value:boolean){
+        if(this._empty!=value){
+            this._empty=value;
+            this.emptyChange.emit(value);
+        }
+    }
+
     private _disabled: boolean = false;
-    
+
     private _options: SummernoteOptions;
 
     private onTouched = () => { };
     private onChange: (value: string) => void = () => { };
 
-    constructor(private element: ElementRef) {
+    constructor(private element: ElementRef, private sanitizer: DomSanitizer) {
 
     }
     private _value: string;
@@ -72,13 +91,14 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
 
     private refreshOptions() {
         $(this.element.nativeElement).find('.summernote').summernote(this.options);
-        if(this.options.tooltip!=undefined&&!this.options.tooltip)
+        if (this.options.tooltip != undefined && !this.options.tooltip)
             (<any>$(this.element.nativeElement).find('.note-editor button.note-btn')).tooltip('destroy');
     }
 
-    private addCallbacks(){
+    private addCallbacks() {
         this.options.callbacks = {
             onChange: (contents, $editable) => {
+                this.refreshEmpty();
                 this.onChange(contents);
             },
             onTouched: () => {
@@ -87,13 +107,15 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
         };
     }
 
+    private refreshEmpty() {
+        this.empty=<boolean>(<any>$(this.element.nativeElement).find('.summernote').summernote('isEmpty'));
+    }
+
     ngOnInit() {
         if (this.options == null) {
             this.options = {};
         }
-        else{
-            this.addCallbacks();
-        }
+        this.refreshEmpty();
     }
 
     ngOnDestroy() {
@@ -103,7 +125,8 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
     writeValue(code: string) {
         this.value = code;
 
-        jQuery(this.element.nativeElement).find('.summernote').summernote('code', code);
+        $(this.element.nativeElement).find('.summernote').summernote('code', code);
+        this.refreshEmpty();
     }
 
     registerOnChange(fn: any) {

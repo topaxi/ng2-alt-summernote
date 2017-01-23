@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /// <reference path="../summernote.d.ts" />
 var $ = require("jquery");
 var core_1 = require("@angular/core");
+var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var SUMMERNOTE_VALUE_ACCESSOR = {
     provide: forms_1.NG_VALUE_ACCESSOR,
@@ -18,15 +19,17 @@ var SUMMERNOTE_VALUE_ACCESSOR = {
     multi: true
 };
 var SummernoteComponent = (function () {
-    function SummernoteComponent(element) {
+    function SummernoteComponent(element, sanitizer) {
         this.element = element;
+        this.sanitizer = sanitizer;
+        this.emptyChange = new core_1.EventEmitter();
         this._disabled = false;
         this.onTouched = function () { };
         this.onChange = function () { };
     }
     Object.defineProperty(SummernoteComponent.prototype, "options", {
         get: function () {
-            return this._options;
+            return this._options || {};
         },
         set: function (options) {
             this._options = options;
@@ -45,6 +48,19 @@ var SummernoteComponent = (function () {
                 this._disabled = disabled;
                 $(this.element.nativeElement).find('.summernote').summernote(disabled ? 'disable' : 'enable');
                 this.refreshOptions();
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(SummernoteComponent.prototype, "empty", {
+        get: function () {
+            return this._empty;
+        },
+        set: function (value) {
+            if (this._empty != value) {
+                this._empty = value;
+                this.emptyChange.emit(value);
             }
         },
         enumerable: true,
@@ -69,6 +85,7 @@ var SummernoteComponent = (function () {
         var _this = this;
         this.options.callbacks = {
             onChange: function (contents, $editable) {
+                _this.refreshEmpty();
                 _this.onChange(contents);
             },
             onTouched: function () {
@@ -76,20 +93,22 @@ var SummernoteComponent = (function () {
             }
         };
     };
+    SummernoteComponent.prototype.refreshEmpty = function () {
+        this.empty = $(this.element.nativeElement).find('.summernote').summernote('isEmpty');
+    };
     SummernoteComponent.prototype.ngOnInit = function () {
         if (this.options == null) {
             this.options = {};
         }
-        else {
-            this.addCallbacks();
-        }
+        this.refreshEmpty();
     };
     SummernoteComponent.prototype.ngOnDestroy = function () {
         $(this.element.nativeElement).find('.summernote').summernote('destroy');
     };
     SummernoteComponent.prototype.writeValue = function (code) {
         this.value = code;
-        jQuery(this.element.nativeElement).find('.summernote').summernote('code', code);
+        $(this.element.nativeElement).find('.summernote').summernote('code', code);
+        this.refreshEmpty();
     };
     SummernoteComponent.prototype.registerOnChange = function (fn) {
         this.onChange = fn;
@@ -109,13 +128,17 @@ __decorate([
     __metadata("design:type", Boolean),
     __metadata("design:paramtypes", [Boolean])
 ], SummernoteComponent.prototype, "disabled", null);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], SummernoteComponent.prototype, "emptyChange", void 0);
 SummernoteComponent = __decorate([
     core_1.Component({
         selector: 'summernote',
         template: '<div class="summernote"></div>',
         providers: [SUMMERNOTE_VALUE_ACCESSOR]
     }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
+    __metadata("design:paramtypes", [core_1.ElementRef, platform_browser_1.DomSanitizer])
 ], SummernoteComponent);
 exports.SummernoteComponent = SummernoteComponent;
 //# sourceMappingURL=summernote.component.js.map
