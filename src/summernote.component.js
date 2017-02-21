@@ -86,7 +86,7 @@ var SummernoteComponent = (function () {
                 _this.refreshEmpty();
                 _this.onChange(contents);
             },
-            onTouched: function () {
+            onFocus: function () {
                 _this.onTouched();
             }
         };

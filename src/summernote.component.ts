@@ -99,7 +99,7 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
                 this.refreshEmpty();
                 this.onChange(contents);
             },
-            onTouched: () => {
+            onFocus: () => {
                 this.onTouched();
             }
         };
