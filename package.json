@@ -1,6 +1,6 @@
 {
   "name": "ng2-alt-summernote",
-  "version": "0.1.28",
+  "version": "0.1.32",
   "description": "Summernote component for Angular2",
   "main": "ng2-alt-summernote.js",
   "keywords": [
@@ -28,13 +28,15 @@
     "@angular/compiler": "^2.4.1",
     "@angular/core": "^2.4.1",
     "@angular/forms": "^2.4.1",
+    "@angular/platform-browser": "^2.4.1",
     "core-js": "^2.4.1",
     "@types/jquery": "^2.0.34",
-    "@types/core-js": "^0.9.35",
+    "@types/core-js": "0.9.35",
 
     "bootstrap":"^3.3.7",
-    "summernote": "^0.8.2",
-    "codemirror": "^5.22.2"
+    "summernote": "^0.8.3",
+    "codemirror": "^5.25.0",
+    "rxjs":"^5.3.0"
   },
   "devDependencies": {}
 }

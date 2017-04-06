@@ -13,6 +13,7 @@ interface SummernoteOptions {
     dialogsFade?: boolean;
     direction?: string;
     disableDragAndDrop?: boolean;
+    disableResize?: boolean;
     focus?: boolean;
     fontNames?: string[];
     fontNamesIgnoreCheck?: string[];
@@ -36,6 +37,7 @@ interface SummernoteOptions {
     tableClassName?: string;
     textareaAutoSync?: boolean;
     toolbar?: toolbarDef;
+    toolbarContainer?: string;
     tooltip?: boolean;
     width?: number;
 }
