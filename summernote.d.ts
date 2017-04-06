@@ -13,7 +13,7 @@ interface SummernoteOptions {
     dialogsFade?: boolean;
     direction?: string;
     disableDragAndDrop?: boolean;
-    disableResize?: boolean;
+    disableResizeEditor?: boolean;
     focus?: boolean;
     fontNames?: string[];
     fontNamesIgnoreCheck?: string[];
