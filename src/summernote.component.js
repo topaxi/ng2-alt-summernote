@@ -98,7 +98,7 @@ var SummernoteComponent = (function () {
         var summernote = $(this.element.nativeElement).find('.summernote');
         this.empty = summernote.summernote('isEmpty');
         if (this.whitespaceEmpty)
-            this.empty = this.empty || summernote.code().replace(/<\/?[^>]+(>|$)/g, "").trim() === '';
+            this.empty = this.empty || summernote.summernote('code').replace(/<\/?[^>]+(>|$)/g, "").replace(/&nbsp;/g, '').trim() === '';
     };
     SummernoteComponent.prototype.ngOnInit = function () {
         if (this.options == null) {
