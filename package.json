@@ -1,6 +1,6 @@
 {
   "name": "ng2-alt-summernote",
-  "version": "0.1.40",
+  "version": "0.1.41",
   "description": "Summernote component for Angular2",
   "main": "ng2-alt-summernote.js",
   "keywords": [
@@ -18,8 +18,7 @@
   },
   "types": [
     "./summernote.d.ts",
-    "./ng2-alt-summernote.d.ts",
-    "./src/*.d.ts"
+    "./ng2-alt-summernote.d.ts"
   ],
   "author": "Carles Company Soler",
   "license": "MIT",
