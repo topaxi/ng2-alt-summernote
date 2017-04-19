@@ -96,6 +96,8 @@ var SummernoteComponent = (function () {
     };
     SummernoteComponent.prototype.refreshEmpty = function () {
         var summernote = $(this.element.nativeElement).find('.summernote');
+        if (summernote == null)
+            return;
         this.empty = summernote.summernote('isEmpty');
         if (this.whitespaceEmpty)
             this.empty = this.empty || summernote.summernote('code').replace(/(<\/?[^>]+>)|(&nbsp;)/g, "").trim() === '';
