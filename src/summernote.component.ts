@@ -54,19 +54,23 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
         return this._disabled;
     }
 
+    @Input() whitespaceEmpty = false;
+
     private _empty;
 
     @Output() emptyChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-    get empty(){
+    get empty() {
         return this._empty;
     }
-    set empty(value:boolean){
-        if(this._empty!=value){
-            this._empty=value;
+    set empty(value: boolean) {
+        if (this._empty != value) {
+            this._empty = value;
             this.emptyChange.emit(value);
         }
     }
+
+    @Output() textChange: EventEmitter<string> = new EventEmitter<string>();
 
     private _disabled: boolean = false;
 
@@ -106,7 +110,10 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
     }
 
     private refreshEmpty() {
-        this.empty=<boolean>(<any>$(this.element.nativeElement).find('.summernote').summernote('isEmpty'));
+        let summernote = $(this.element.nativeElement).find('.summernote');
+        this.empty = <boolean>(<any>summernote.summernote('isEmpty'))
+        if (this.whitespaceEmpty)
+            this.empty = this.empty || summernote.code().replace(/<\/?[^>]+(>|$)/g, "").trim() === '';
     }
 
     ngOnInit() {

@@ -21,7 +21,9 @@ var SUMMERNOTE_VALUE_ACCESSOR = {
 var SummernoteComponent = (function () {
     function SummernoteComponent(element) {
         this.element = element;
+        this.whitespaceEmpty = false;
         this.emptyChange = new core_1.EventEmitter();
+        this.textChange = new core_1.EventEmitter();
         this._disabled = false;
         this.onTouched = function () { };
         this.onChange = function () { };
@@ -93,7 +95,10 @@ var SummernoteComponent = (function () {
         };
     };
     SummernoteComponent.prototype.refreshEmpty = function () {
-        this.empty = $(this.element.nativeElement).find('.summernote').summernote('isEmpty');
+        var summernote = $(this.element.nativeElement).find('.summernote');
+        this.empty = summernote.summernote('isEmpty');
+        if (this.whitespaceEmpty)
+            this.empty = this.empty || summernote.code().replace(/<\/?[^>]+(>|$)/g, "").trim() === '';
     };
     SummernoteComponent.prototype.ngOnInit = function () {
         if (this.options == null) {
@@ -128,9 +133,17 @@ __decorate([
     __metadata("design:paramtypes", [Boolean])
 ], SummernoteComponent.prototype, "disabled", null);
 __decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], SummernoteComponent.prototype, "whitespaceEmpty", void 0);
+__decorate([
     core_1.Output(),
     __metadata("design:type", core_1.EventEmitter)
 ], SummernoteComponent.prototype, "emptyChange", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], SummernoteComponent.prototype, "textChange", void 0);
 SummernoteComponent = __decorate([
     core_1.Component({
         selector: 'summernote',
