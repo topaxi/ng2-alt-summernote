@@ -20,6 +20,7 @@ var SUMMERNOTE_VALUE_ACCESSOR = {
 };
 var SummernoteComponent = (function () {
     function SummernoteComponent(element) {
+        var _this = this;
         this.element = element;
         this.whitespaceEmpty = false;
         this.emptyChange = new core_1.EventEmitter();
@@ -27,6 +28,13 @@ var SummernoteComponent = (function () {
         this._disabled = false;
         this.onTouched = function () { };
         this.onChange = function () { };
+        this.summernoteChange = function (contents, $editable) {
+            _this.refreshEmpty();
+            _this.onChange(contents);
+        };
+        this.summernoteBlur = function () {
+            _this.onTouched();
+        };
     }
     Object.defineProperty(SummernoteComponent.prototype, "options", {
         get: function () {
@@ -34,7 +42,6 @@ var SummernoteComponent = (function () {
         },
         set: function (options) {
             this._options = options;
-            this.addCallbacks();
             this.refreshOptions();
         },
         enumerable: true,
@@ -78,25 +85,16 @@ var SummernoteComponent = (function () {
         configurable: true
     });
     SummernoteComponent.prototype.refreshOptions = function () {
-        $(this.element.nativeElement).find('.summernote').summernote(this.options);
+        var summernote = $(this.element.nativeElement).find('.summernote');
+        summernote.on('summernote.change', this.summernoteChange);
+        summernote.on('summernote.blur', this.summernoteBlur);
+        summernote.summernote(this.options);
         if (this.options.tooltip != undefined && !this.options.tooltip)
             $(this.element.nativeElement).find('.note-editor button.note-btn').tooltip('destroy');
     };
-    SummernoteComponent.prototype.addCallbacks = function () {
-        var _this = this;
-        this.options.callbacks = {
-            onChange: function (contents, $editable) {
-                _this.refreshEmpty();
-                _this.onChange(contents);
-            },
-            onBlur: function () {
-                _this.onTouched();
-            }
-        };
-    };
     SummernoteComponent.prototype.refreshEmpty = function () {
         var summernote = $(this.element.nativeElement).find('.summernote');
-        if (summernote == null)
+        if (summernote.length === 0)
             return;
         this.empty = summernote.summernote('isEmpty');
         if (this.whitespaceEmpty)

@@ -33,7 +33,6 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
     @Input()
     set options(options: SummernoteOptions) {
         this._options = options;
-        this.addCallbacks();
         this.refreshOptions();
     }
 
@@ -56,11 +55,11 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
 
     @Input() whitespaceEmpty = false;
 
-    private _empty;
+    private _empty: boolean;
 
     @Output() emptyChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-    get empty() {
+    get empty(): boolean {
         return this._empty;
     }
     set empty(value: boolean) {
@@ -92,28 +91,34 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
     }
 
     private refreshOptions() {
-        $(this.element.nativeElement).find('.summernote').summernote(this.options);
+        let summernote = $(this.element.nativeElement).find('.summernote');
+
+        summernote
+          .off('summernote.change', this.summernoteChange as any)
+          .off('summernote.blur', this.summernoteBlur as any)
+          .on('summernote.change', this.summernoteChange as any)
+          .on('summernote.blur', this.summernoteBlur as any);
+
+        summernote.summernote(this.options);
+
         if (this.options.tooltip != undefined && !this.options.tooltip)
             (<any>$(this.element.nativeElement).find('.note-editor button.note-btn')).tooltip('destroy');
     }
 
-    private addCallbacks() {
-        this.options.callbacks = {
-            onChange: (contents, $editable) => {
-                this.refreshEmpty();
-                this.onChange(contents);
-            },
-            onBlur: () => {
-                this.onTouched();
-            }
-        };
+    private summernoteChange = (contents: string, $editable: JQuery) => {
+        this.refreshEmpty();
+        this.onChange(contents);
+    }
+
+    private summernoteBlur = () => {
+        this.onTouched();
     }
 
     private refreshEmpty() {
         let summernote = $(this.element.nativeElement).find('.summernote');
-        if (summernote == null)
+        if (summernote.length === 0)
             return;
-        this.empty = <boolean>(<any>summernote.summernote('isEmpty'))
+        this.empty = <boolean>(<any>summernote.summernote('isEmpty'));
         if (this.whitespaceEmpty)
             this.empty = this.empty || summernote.summernote('code').replace(/(<\/?[^>]+>)|(&nbsp;)/g, "").trim() === '';
     }

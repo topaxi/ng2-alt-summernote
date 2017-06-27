@@ -3,10 +3,22 @@
 // Definitions by: Wouter Staelens https://github.com/wstaelens/
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
+interface SummernoteCallbacks {
+  onInit?: Function;
+  onEnter?: Function;
+  onFocus?: Function;
+  onBlur?: Function;
+  onKeyup?: (e: KeyboardEvent) => void;
+  onKeydown?: (e: KeyboardEvent) => void;
+  onPaste?: Function;
+  onImageUpload?: (files: File[]) => void;
+  onChange?: (contents: string, $editable: JQuery) => void;
+}
+
 interface SummernoteOptions {
     airMode?: boolean;
     buttons?: any;
-    callbacks?: any; // todo
+    callbacks?: SummernoteCallbacks;
     codemirror?: CodemirrorOptions;
     colors?: colorsDef;
     dialogsInBody?: boolean;
