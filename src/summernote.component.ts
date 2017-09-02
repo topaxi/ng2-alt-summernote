@@ -56,11 +56,11 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
 
     @Input() whitespaceEmpty = false;
 
-    private _empty;
+    private _empty: boolean;
 
     @Output() emptyChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-    get empty() {
+    get empty(): boolean {
         return this._empty;
     }
     set empty(value: boolean) {
@@ -99,7 +99,7 @@ export class SummernoteComponent implements OnInit, OnDestroy, ControlValueAcces
 
     private addCallbacks() {
         this.options.callbacks = {
-            onChange: (contents, $editable) => {
+          onChange: (contents: string, $editable: JQuery) => {
                 this.refreshEmpty();
                 this.onChange(contents);
             },
