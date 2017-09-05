@@ -11,17 +11,17 @@ var summernote_component_1 = require("./summernote.component");
 var SummernoteModule = (function () {
     function SummernoteModule() {
     }
+    SummernoteModule = __decorate([
+        core_1.NgModule({
+            declarations: [
+                summernote_component_1.SummernoteComponent
+            ],
+            exports: [
+                summernote_component_1.SummernoteComponent
+            ]
+        })
+    ], SummernoteModule);
     return SummernoteModule;
 }());
-SummernoteModule = __decorate([
-    core_1.NgModule({
-        declarations: [
-            summernote_component_1.SummernoteComponent
-        ],
-        exports: [
-            summernote_component_1.SummernoteComponent
-        ]
-    })
-], SummernoteModule);
 exports.SummernoteModule = SummernoteModule;
 //# sourceMappingURL=summernote.module.js.map

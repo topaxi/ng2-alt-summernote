@@ -122,37 +122,37 @@ var SummernoteComponent = (function () {
     SummernoteComponent.prototype.registerOnTouched = function (fn) {
         this.onTouched = fn;
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], SummernoteComponent.prototype, "options", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], SummernoteComponent.prototype, "disabled", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], SummernoteComponent.prototype, "whitespaceEmpty", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], SummernoteComponent.prototype, "emptyChange", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], SummernoteComponent.prototype, "textChange", void 0);
+    SummernoteComponent = __decorate([
+        core_1.Component({
+            selector: 'summernote',
+            template: '<div class="summernote"></div>',
+            providers: [SUMMERNOTE_VALUE_ACCESSOR]
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], SummernoteComponent);
     return SummernoteComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], SummernoteComponent.prototype, "options", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Boolean),
-    __metadata("design:paramtypes", [Boolean])
-], SummernoteComponent.prototype, "disabled", null);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], SummernoteComponent.prototype, "whitespaceEmpty", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], SummernoteComponent.prototype, "emptyChange", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", core_1.EventEmitter)
-], SummernoteComponent.prototype, "textChange", void 0);
-SummernoteComponent = __decorate([
-    core_1.Component({
-        selector: 'summernote',
-        template: '<div class="summernote"></div>',
-        providers: [SUMMERNOTE_VALUE_ACCESSOR]
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], SummernoteComponent);
 exports.SummernoteComponent = SummernoteComponent;
 //# sourceMappingURL=summernote.component.js.map
