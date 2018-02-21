@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var summernote_component_1 = require("./summernote.component");
-var SummernoteModule = (function () {
+var SummernoteModule = /** @class */ (function () {
     function SummernoteModule() {
     }
     SummernoteModule = __decorate([

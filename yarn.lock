@@ -36,9 +36,9 @@
   version "0.9.35"
   resolved "https://registry.yarnpkg.com/@types/core-js/-/core-js-0.9.35.tgz#444064e63711cdcc62ea844d27642f6efc2285f2"
 
-"@types/jquery@^2.0.34":
-  version "2.0.48"
-  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-2.0.48.tgz#3e90d8cde2d29015e5583017f7830cb3975b2eef"
+"@types/jquery@^2.0.34 || ^3.0.0":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.3.0.tgz#6316ac20a1a13c5d521a2dc661befc7184f73f5b"
 
 bootstrap@^3.3.7:
   version "3.3.7"

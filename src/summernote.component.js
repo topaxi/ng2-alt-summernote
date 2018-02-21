@@ -18,7 +18,7 @@ var SUMMERNOTE_VALUE_ACCESSOR = {
     useExisting: core_1.forwardRef(function () { return SummernoteComponent; }),
     multi: true
 };
-var SummernoteComponent = (function () {
+var SummernoteComponent = /** @class */ (function () {
     function SummernoteComponent(element) {
         this.element = element;
         this.whitespaceEmpty = false;
